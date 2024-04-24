@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Studenti(name, surname, dateofbirth, id, level){
+            this.name = name;
+            this.surname = surname;
+            this.dateofbirth = dateofbirth;
+            this.id = id;
+            this.level = level;
+        }
+        Studenti.prototype.displayDetails = function(){
+            console.log("Name: " + this.name);
+            console.log("Surname: "+ this.surname);
+            console.log("Date of Birth: "+ this.dateofbirth);
+            console.log("ID: "+ this.id);
+            console.log("Level: "+ this.level);
+        }
+        function Universiteti(){
+            this.Students = [];
+        }
+        Universiteti.prototype.addStudent = function(student){
+            this.Students.push(student);
+        }
+        Universiteti.prototype.removeStudent = function(student){
+            this.Students.pop(student);
+        }
+        Universiteti.prototype.displayStudents = function(){
+            console.log("Studentat qe jane ne universitet");
+            for(var i=0; i < this.Students.length; i++){
+                console.log("Student"+ (i+1) + " : ");
+                this.Students[i].displayDetails();
+            }
+        }
+        var universiteti = new Universiteti();
+        var student1 = new Studenti("Napoleon", "Hill", " 18/6/2005" , 45 , 97);
+        var student2 = new Studenti("Colleen", "Hoover", 2000 , 56 , 63);
+        var student3 = new Studenti("Nazmi", "Rrahmani", 1999 , 73 , 74);
+        universiteti.addStudent(student1);
+        universiteti.addStudent(student2);
+        universiteti.addStudent(student3);
+        universiteti.displayStudents();
+    </script>
+</body>
+</html>
